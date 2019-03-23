@@ -41,14 +41,14 @@ def ls(args, config):
     headers['bucket-name'] = config['bucketName']
 
   print(headers)
-  response = requests.get("http://192.168.11.129", headers=headers)
+  response = requests.get("http://web3.crikey.ctf:8080", headers=headers)
   return response.text
 
 def cp(args, config):
   headers = {}
   headers['access-key'] = config['access-key']
   headers['secret-key'] = config['secret-key']
-  response = requests.get("http://192.168.11.129", headers=headers)
+  response = requests.get("http://web3.crikey.ctf:8080", headers=headers)
   return response.text
   
 def setup_parser():

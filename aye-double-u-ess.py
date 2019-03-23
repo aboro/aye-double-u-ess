@@ -63,8 +63,7 @@ def setup_parser():
   parser_cp.add_argument("<filename>", nargs=2, help="S4Uri and localfile or localfile and S4Uri", type=str)
   parser_cp.set_defaults(func=cp)
    
-  args = parser.parse_args()
-  return args
+  return parser
   
 def main():
   # Set up or read config if it exists
@@ -82,8 +81,12 @@ def main():
   
   # Simplify access
   config = config['Config']
-  args = setup_parser()
-  print(args.func(args, config))
+  parser = setup_parser()
+  args = parser.parse_args()
+  try:
+    print(args.func(args, config))
+  except AttributeError:
+    parser.print_help()
   
 if __name__ == "__main__":
   main()

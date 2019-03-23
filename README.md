@@ -1,7 +1,7 @@
 # aye-double-u-ess
 S4 bucket command line interface
 
-usage: aye-double-u-ess.py [-h] s4 {ls,cp}
+    usage: aye-double-u-ess.py [-h] s4 {ls,cp}
 
 Change the option prefix characters
 

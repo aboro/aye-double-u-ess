@@ -66,6 +66,7 @@ def setup_parser():
   return parser
   
 def main():
+  # flag{aye_double_u_ess_s4_tool}
   # Set up or read config if it exists
   config = configparser.ConfigParser()
   

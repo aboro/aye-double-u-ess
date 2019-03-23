@@ -1,7 +1,6 @@
 import requests
 import argparse
 import os
-import pdb
 import configparser
 
 def setup_conf(config):

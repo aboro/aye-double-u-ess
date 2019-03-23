@@ -12,3 +12,5 @@ positional arguments:
     ls          ls help
 
     cp          cp help
+
+First time run will request your keys

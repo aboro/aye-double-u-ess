@@ -23,12 +23,12 @@ def ls(args, config):
   headers['secret-key'] = config['secret-key']
   if isinstance(args.S4Uri,type(None)):
     headers['method'] = "ls"
-    headers['bucketName'] = config['bucketName']
+    headers['bucke-name'] = config['bucketName']
   elif "s4://" in args.S4Uri:
     temp = args.S4Uri[5:]
     headers['item'] = temp[temp.find("/")+1:]
     headers['method'] = "ls"
-    headers['bucketName'] = temp[:temp.find("/")]
+    headers['bucket-name'] = temp[:temp.find("/")]
     print(args.S4Uri[5:])  
   elif "/" in args.S4Uri:
     temp = args.S4Uri
@@ -37,7 +37,7 @@ def ls(args, config):
   else:
     headers['item'] = args.S4Uri
     headers['method'] = "ls"
-    headers['bucketName'] = config['bucketName']
+    headers['bucket-name'] = config['bucketName']
 
   print(headers)
   response = requests.get("http://web3.crikey.ctf:8080", headers=headers)

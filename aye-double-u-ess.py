@@ -23,7 +23,7 @@ def ls(args, config):
   headers['secret-key'] = config['secret-key']
   if isinstance(args.S4Uri,type(None)):
     headers['method'] = "ls"
-    headers['bucke-name'] = config['bucketName']
+    headers['bucket-name'] = config['bucketName']
   elif "s4://" in args.S4Uri:
     temp = args.S4Uri[5:]
     headers['item'] = temp[temp.find("/")+1:]
@@ -39,14 +39,20 @@ def ls(args, config):
     headers['method'] = "ls"
     headers['bucket-name'] = config['bucketName']
 
+  proxydict = { "http" : "http://127.0.0.1:8080" }
   print(headers)
-  response = requests.get("http://web3.crikey.ctf:8080", headers=headers)
+  response = requests.get("http://web3.crikey.ctf:8080", headers=headers, proxies=proxydict)
   return response.text
 
 def cp(args, config):
   headers = {}
   headers['access-key'] = config['access-key']
   headers['secret-key'] = config['secret-key']
+  headers['method'] = "cp"
+  # TODO add target function where I can specify the header
+  # headers['target'] = arg
+  # proxydict = { "http" : "http://127.0.0.1:8080" }
+  # response = requests.get("http://web3.crikey.ctf:8080", headers=headers, proxies=proxydict)
   response = requests.get("http://web3.crikey.ctf:8080", headers=headers)
   return response.text
   

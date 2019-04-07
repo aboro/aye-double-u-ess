@@ -41,7 +41,8 @@ def ls(args, config):
 
   proxydict = { "http" : "http://127.0.0.1:8080" }
   print(headers)
-  response = requests.get("http://web3.crikey.ctf:8080", headers=headers, proxies=proxydict)
+  response = requests.get("http://web3.crikey.ctf:8080", headers=headers)
+  #response = requests.get("http://web3.crikey.ctf:8080", headers=headers, proxies=proxydict)
   return response.text
 
 def cp(args, config):

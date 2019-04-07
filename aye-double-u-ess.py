@@ -50,7 +50,7 @@ def cp(args, config):
   headers['secret-key'] = config['secret-key']
   headers['method'] = "cp"
   # TODO add target function where I can specify the header
-  # headers['target'] = args[0]
+  # headers['target'] = grab my args here
   # proxydict = { "http" : "http://127.0.0.1:8080" }
   # response = requests.get("http://web3.crikey.ctf:8080", headers=headers, proxies=proxydict)
   response = requests.get("http://web3.crikey.ctf:8080", headers=headers)
